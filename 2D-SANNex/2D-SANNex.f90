@@ -1,4 +1,4 @@
-program SANN
+program SANNex
     implicit none
 !================ Definition
 !---- physical constant
