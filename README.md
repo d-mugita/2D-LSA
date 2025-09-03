@@ -39,7 +39,14 @@ The main steps of the algorithm are:
 
 ## ReCFA
 
-Coming soon ...
+ReCFA (Recursion to the Centroid of Free Area) is a method for deriving inherent structures in two-dimensional hard-disk systems, where conventional steepest descent methods cannot be applied due to the flatness of the potential energy landscape. Inspired by steepest descent, ReCFA recursively moves each particle toward the centroid of its local free area (CFA). By iterating this process until convergence, the system evolves into a jammed structure that represents an inherent structure for hard-disk systems.
+
+The algorithm proceeds as follows:
+1. Calculate the centroid of free area (CFA) for all particles  
+2. Move all particles toward their respective CFAs  
+3. Repeat steps 1–2 until the particle positions converge
+
+This approach enables the removal of thermal fluctuations from particle trajectories, allowing for the precise identification of hopping motions. In hopping analysis, ReCFA has been shown to eliminate small vibrational displacements while clearly capturing string-like particle rearrangements. Moreover, ReCFA sometimes anticipates structural transitions before they occur in raw or TCG-processed coordinates, suggesting that it provides a well-partitioned tiling of configuration space analogous to inherent structures in soft-core systems.
 
 ## Usage
 
@@ -52,7 +59,7 @@ To use these codes, you will need a Fortran compiler installed on your system. P
 
 ## Input File
 
-All the codes reads either particle configuration  file `bin_4096_720.dat`, `bin_4096_760.dat`, or `bin_4096_780.dat` from the directory `./ini_conf/`, and these are distinguished based on the values of packong fraction.
+All the codes read particle configuration files (e.g., `bin_4096_720.dat`, `bin_4096_760.dat`, …, `bin_4096_805.dat`) from the directory `./ini_conf/`. These files are distinguished based on the values of the packing fraction.
 
 ## Output Files
 
@@ -69,6 +76,10 @@ All the codes reads either particle configuration  file `bin_4096_720.dat`, `bin
 
 - `FV.dat`: Contains the free volume for each particle
 - `FS.dat`: Contains the free surface area for each particle
+
+### ReCFA
+
+- `pos_ReCFA.dat`: Final particle configuration obtained after applying ReCFA
 
 ## License
 
